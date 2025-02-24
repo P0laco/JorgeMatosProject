@@ -7,44 +7,51 @@ document.querySelectorAll('#navbar a').forEach(link => {
     });
 });
 
-const carousel = document.querySelector('.carousel');
-const carouselItems = document.querySelectorAll('.carousel-item');
+const carousels = document.querySelectorAll('.carousel');
+const projectButtons = document.querySelectorAll('.project-button');
 let prevBtn = document.querySelector('.prev-button');
 let nextBtn = document.querySelector('.next-button');
 
-let currentSlide = 0;
+let currentSlides = [0, 0, 0]; // Track current slide for each carousel
 
 // Auto rotate carousel
 setInterval(() => {
-    nextSlide();
-}, 4000);
+    carousels.forEach((carousel, index) => {
+        nextSlide(index);
+    });
+}, 5000);
 
 // Next slide function
-function nextSlide() {
-    carouselItems[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % carouselItems.length;
-    carouselItems[currentSlide].classList.add('active');
-    console.log(currentSlide);
-    
+function nextSlide(carouselIndex) {
+    const carouselItems = carousels[carouselIndex].querySelectorAll('.carousel-item');
+    carouselItems[currentSlides[carouselIndex]].classList.remove('active');
+    currentSlides[carouselIndex] = (currentSlides[carouselIndex] + 1) % carouselItems.length;
+    carouselItems[currentSlides[carouselIndex]].classList.add('active');
+    console.log(`Carousel ${carouselIndex} - Slide ${currentSlides[carouselIndex]}`);
 }
 
 // Prev slide function
-function prevSlide() {
-    carouselItems[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide - 1 + carouselItems.length) % carouselItems.length;
-    carouselItems[currentSlide].classList.add('active');
-    console.log(currentSlide);
-    
+function prevSlide(carouselIndex) {
+    const carouselItems = carousels[carouselIndex].querySelectorAll('.carousel-item');
+    carouselItems[currentSlides[carouselIndex]].classList.remove('active');
+    currentSlides[carouselIndex] = (currentSlides[carouselIndex] - 1 + carouselItems.length) % carouselItems.length;
+    carouselItems[currentSlides[carouselIndex]].classList.add('active');
+    console.log(`Carousel ${carouselIndex} - Slide ${currentSlides[carouselIndex]}`);
 }
 
 // Add event listeners to buttons
 if (prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', () => {
+        carousels.forEach((carousel, index) => {
+            prevSlide(index);
+        });
+    });
+    nextBtn.addEventListener('click', () => {
+        carousels.forEach((carousel, index) => {
+            nextSlide(index);
+        });
+    });
 }
-
-const projectButtons = document.querySelectorAll('.project-button');
-const carousels = document.querySelectorAll('.carousel');
 
 projectButtons.forEach((button, index) => {
     button.addEventListener('click', () => {

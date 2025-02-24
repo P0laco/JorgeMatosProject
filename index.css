@@ -12,6 +12,8 @@ body {
     position: fixed;
     width: 100%;
     z-index: 500;
+    font-size: large;
+    font-weight: bold;
 }
 
 #navbar ul {
@@ -85,13 +87,13 @@ body {
 }
 
 .carousel-controls {
-    position: absolute;
     bottom: 0;
-    top: 130%;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     justify-content: space-between;
+    position: relative;
     width: 100px;
     margin-top: 20px;
 }
@@ -101,6 +103,7 @@ body {
     background-color: transparent;
     width: 48px;
     height: 48px;
+    left: 50%;
     border: none;
     cursor: pointer;
     border-radius: 100%;
@@ -121,11 +124,13 @@ body {
     color: #fff;
     padding: 2.5em;
     text-align: center;
+    font-size: larger;
+    font-weight: bolder;
 }
 
 #header h1 {
     font-size: 2em;
-    padding-top: 1em;
+    padding-top: 2vh;
 }
 
 #about-me, #projects {
@@ -184,7 +189,7 @@ body {
     padding: 1em;
     text-align: left;
     bottom: 0;
-    width: 97.86%;
+    width: 97.51%;
     height: 5em;
     padding-top: 5em;
 }
