@@ -82,7 +82,6 @@ body {
     animation: fadeIn 0.5s;
 }
 
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -197,13 +196,13 @@ body {
     transition: opacity 0.3s;
 }
 
-#contact {
+footer {
     background-color: #8BC34A; /* light green */
     color: #fff;
     padding: 1em;
     text-align: left;
     bottom: 0;
-    width: 97.51%;
+    width: auto;
     height: 5em;
     padding-top: 5em;
 }
@@ -232,23 +231,103 @@ body {
     display: inline-block;
     margin-right: 10px;
 }
-/*
-#contact ul, #contact a {
-    list-style: none;
-    text-decoration: none;
-    color: #fff;
-    padding-right: 1em;
-    transition: all 0.3s ease-in-out;
-}
-*/
 
 footer a {
     color: #fff;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#terms-button {
+    font-weight: bolder;
+    font-size: large ;
 }
 
 footer a:hover {
     color: black;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5000;
+    display: none;
+}
+
+#terms-popup-overlay {
+    display: none;
+}
+
+body.lock-scroll {
+    overflow: hidden;
+}
+
+#terms-popup {
+    position: fixed;
+    color: black;
+    top: 10%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    max-width: 90%;
+    opacity: 0;
+    transform-origin: center;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
+  }
+
+  #close-button {
+    margin-left: 40%;
+    background-color: #8BC34A;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #terms-popup.show {
+    animation: show-terms-popup 0.3s ease-in-out forwards;
+    visibility: visible;
+    z-index: 5000;
+  }
+  
+  @keyframes show-terms-popup {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  #terms-popup h2 {
+    margin-top: 0;
+  }
+  
+  #close-terms-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #8BC34A;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }

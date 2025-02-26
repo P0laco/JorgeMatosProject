@@ -61,3 +61,20 @@ projectButtons.forEach((button, index) => {
         carousels[index].style.display = 'block';
     });
 });
+
+let termsButton = document.getElementById('terms-button');
+let termsPopup = document.getElementById('terms-popup');
+let closeButton = document.getElementById('close-button');
+let termsPopupOverlay = document.getElementById('terms-popup-overlay');
+
+termsButton.addEventListener('click', () => {
+    termsPopup.classList.add('show');
+    termsPopupOverlay.style.display = "block";
+    document.body.classList.add("lock-scroll");
+});
+
+closeButton.addEventListener('click', () => {
+    termsPopup.classList.remove('show');
+    termsPopupOverlay.style.display = "none";
+    document.body.classList.remove("lock-scroll");
+});
