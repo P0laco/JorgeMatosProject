@@ -1,3 +1,41 @@
+@media only screen and (max-width: 768px){
+
+    body{
+        font-size: 16px;
+        justify-content: center;
+    }
+
+    #navbar{
+        width: 100%;
+        padding: 0.5em;
+    }
+
+    #header{
+        width: 100%;
+        padding: 1em;
+    }
+
+    #contact{
+        width: 100%;
+    }
+
+    .footer-content{
+        font-size: 15px;
+    }
+
+    .carousel-container{
+        width: 100%;
+    }
+
+    .project-buttons{
+        flex-direction: column;
+    }
+
+    .project-button{
+        margin-bottom: 10px;
+    }
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
